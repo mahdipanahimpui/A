@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>hello ...</h3>
+    <h3>hello ...{{ name }}</h3>
+    {% if name == "mahdi" %}
+        <p>your name is {{ name | upper  }}</p>
+        {# comment #}
+    {% endif %}
+
 </body>
 </html>
