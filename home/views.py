@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Todo
 from django.contrib import messages
+from .forms import TodoCreateForm
 
 # Create your views here.
 
@@ -24,3 +25,9 @@ def delete(request, todo_id):
     todo.delete()
     messages.success(request, 'toto Deleted', extra_tags='success')
     return redirect('home') # home url name
+
+
+def create(request):
+    # to show form import form class and send as dict
+    form = TodoCreateForm()
+    return render(request, 'create.html', context={'form': form}) 
