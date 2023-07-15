@@ -4,9 +4,7 @@ from django.http import HttpResponse
 from .models import Todo
 
 # Create your views here.
-def say_hello(request): 
-    person = {"name": "mahdi"}
-    return render(request, 'hello.html', context=person)
+
 
 
 def home(request):
