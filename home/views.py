@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Todo
+from django.contrib import messages
 
 # Create your views here.
 
@@ -9,7 +10,7 @@ from .models import Todo
 
 def home(request):
     all = Todo.objects.all()
-    return render(request, 'home.html', context={'todos':    all})
+    return render(request, 'home.html', context={'todos': all})
 
 
 
@@ -21,4 +22,5 @@ def detail(request, todo_id):
 def delete(request, todo_id):
     todo = Todo.objects.get(id=todo_id)
     todo.delete()
+    messages.success(request, 'toto Deleted', extra_tags='success')
     return redirect('home') # home url name

@@ -1,0 +1,7 @@
+{% if messages %} <!-- i think messages is a keyword in template processing -->
+    <!-- getting extra data from messages -->
+    {% for msg in messages %}
+        <p class="alert alert-{{ msg.tags }}">{{ msg }}</p> 
+    {% endfor %}
+
+{% endif %}
