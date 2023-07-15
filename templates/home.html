@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>home ...</h3>
+    {% for todo in todos %}
+        <h3>title: {{ todo.title }}</h3>
+        <small>data: {{ todo.created }}</small>
+        <p>context: {{ todo.body }}</p>
+    {% endfor %}
 </body>
 </html>
