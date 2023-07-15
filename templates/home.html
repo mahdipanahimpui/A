@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+
+{% block title %} home {% endblock %}
+
+{% block content %}
     {% for todo in todos %}
         <h3>title: {{ todo.title }}</h3>
         <small>data: {{ todo.created }}</small>
         <p>context: {{ todo.body }}</p>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
