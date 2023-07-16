@@ -7,5 +7,7 @@
     <small>{{ todo.created }}</small>
     <p>{{ todo.body }}</p>
     <a href="{% url 'delete' todo.id %}" class="btn btn-danger">Delete</a>
+    <a href="{% url 'update' todo.id %}" class="btn btn-info">Edit</a>
+
 
 {% endblock %}
