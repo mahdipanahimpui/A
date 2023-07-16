@@ -8,3 +8,9 @@ class UserRegistrationForm(forms.Form):
     password = forms.CharField()
     firstname = forms.CharField()
     lastname = forms.CharField()
+
+
+
+class UserLoginForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField()
