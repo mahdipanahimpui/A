@@ -49,10 +49,20 @@ def create(request):
 
 
 def update(request, todo_id):
-    
+
+    todo = Todo.objects.get(id=todo_id)
+
     if request.method == 'POST':
-        pass
+        # if instance not used, update not work, insted create a new object
+        form = TodoUpdateForm(request.POST, instance=todo) 
+        
+        if form.is_valid():
+            # clean_data is not required in update
+            form.save()
+            messages.success(request, 'todo updated', extra_tags='success')
+            # detail is url, todo is arg (args is not a str)
+            return redirect('detail', todo_id) 
     else:
-        form = TodoUpdateForm()
+        form = TodoUpdateForm(instance=todo)
     
     return render(request, 'update.html', context={'form': form})
