@@ -28,6 +28,20 @@ def delete(request, todo_id):
 
 
 def create(request):
-    # to show form import form class and send as dict
-    form = TodoCreateForm()
+
+    if request.method == "POST":
+
+        form = TodoCreateForm(request.POST)
+
+        if form.is_valid():
+            print('is_valid')
+            cd = form.cleaned_data
+            Todo.objects.create(title=cd['title'], body=cd['body'], created=cd['created'])
+            messages.success(request, 'Todo create', 'success')
+            return redirect('home')
+
+    else:
+        # to show form import form class and send as dict
+        form = TodoCreateForm()
+        
     return render(request, 'create.html', context={'form': form}) 
